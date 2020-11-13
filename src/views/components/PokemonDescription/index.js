@@ -1,26 +1,25 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const PokemonDescription = () => {
+const PokemonDescription = ({pokedexEntry, pokedexSource, height, weight}) => {
   return (
     <View style={styles.container}>
       <View style={styles.entryContainer}>
-        <Text style={styles.entryText}>
-          It has a preference for hot things. When it rains, steam is said to
-          spout from the tip of its tail.
-        </Text>
+        <Text style={styles.entryText}>{pokedexEntry}</Text>
       </View>
-      <Text style={styles.sourceText}>(Pokedéx entry from Pokémon Sword)</Text>
+      <Text style={styles.sourceText}>
+        (Pokedéx entry from Pokémon {pokedexSource})
+      </Text>
       <View style={styles.miscInfoContainer}>
         <View style={styles.miscInfoGroup}>
           <View style={styles.miscInfoItem}>
-            <Text style={styles.miscInfoText}>2'00" (0.6 m)</Text>
+            <Text style={styles.miscInfoText}>2'00" ({height} m)</Text>
           </View>
           <Text style={styles.miscInfoText}>Height</Text>
         </View>
         <View style={styles.miscInfoGroup}>
           <View style={styles.miscInfoItem}>
-            <Text style={styles.miscInfoText}>18.7 lbs (8.5 kg)</Text>
+            <Text style={styles.miscInfoText}>18.7 lbs ({weight} kg)</Text>
           </View>
           <Text style={styles.miscInfoText}>Weight</Text>
         </View>

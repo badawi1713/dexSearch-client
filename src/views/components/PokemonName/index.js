@@ -1,24 +1,29 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const PokemonName = () => {
+const PokemonName = ({name, number, species, primaryType, secondaryType}) => {
   return (
     <View>
       <View style={styles.nameGroup}>
-        <Text style={styles.nameGroupText}>Charmander</Text>
-        <Text style={styles.nameGroupText}>#004</Text>
+        <Text style={styles.nameGroupText}>{name}</Text>
+        <Text style={styles.nameGroupText}>#{number}</Text>
       </View>
-      <Text style={styles.speciesText}>Lizard Pokémon</Text>
+      <Text style={styles.speciesText}>{species}</Text>
       <View style={styles.typeGroup}>
-        {/* <View style={styles.typeGroupSingle}>
-          <Text style={styles.typeGroupText}>Fire</Text>
-        </View> */}
-        <View style={styles.typeGroupDoublePrimary}>
-          <Text style={styles.typeGroupText}>Fire</Text>
-        </View>
-        <View style={styles.typeGroupDoubleSecondary}>
-          <Text style={styles.typeGroupText}>Normal</Text>
-        </View>
+        {secondaryType ? (
+          <>
+            <View style={styles.typeGroupDoublePrimary}>
+              <Text style={styles.typeGroupText}>{primaryType}</Text>
+            </View>
+            <View style={styles.typeGroupDoubleSecondary}>
+              <Text style={styles.typeGroupText}>{secondaryType}</Text>
+            </View>
+          </>
+        ) : (
+          <View style={styles.typeGroupSingle}>
+            <Text style={styles.typeGroupText}>{primaryType}</Text>
+          </View>
+        )}
       </View>
     </View>
   );

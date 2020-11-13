@@ -1,11 +1,21 @@
 import React from 'react';
 import {SafeAreaView, View, Text, TextInput, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-const SearchBar = () => {
+
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
+const SearchBar = ({searchHandler, searchValue}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.searchGroup}>
-        <TextInput style={styles.searchInput} placeholder="Search" />
+        <TextInput
+          onChangeText={(text) => searchHandler(text.capitalize())}
+          style={styles.searchInput}
+          placeholder="Search"
+          value={searchValue}
+        />
         <Icon name="search" size={18} style={styles.searchIcon} />
       </View>
     </SafeAreaView>

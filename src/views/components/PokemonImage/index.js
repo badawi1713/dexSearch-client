@@ -2,7 +2,7 @@ import React from 'react';
 
 import {View, Image, StyleSheet} from 'react-native';
 
-const PokemonImage = () => {
+const PokemonImage = ({image}) => {
   return (
     <View style={styles.pokemonImageContainer}>
       <Image
@@ -14,7 +14,7 @@ const PokemonImage = () => {
       />
       <Image
         source={{
-          uri: 'https://cdn.bulbagarden.net/upload/7/73/004Charmander.png',
+          uri: image,
         }}
         style={styles.pokemonImage}
       />
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     marginVertical: 20,
-    height: 200,
+    height: 180,
   },
   backgroundImage: {
-    width: 220,
-    height: 220,
+    width: 200,
+    height: 200,
     opacity: 0.1,
     zIndex: -1,
     position: 'absolute',
